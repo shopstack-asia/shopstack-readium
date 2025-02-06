@@ -22,9 +22,9 @@ final class WebView: WKWebView {
        // Disable the Apple Intelligence Writing tools in the web views.
         // See https://github.com/readium/swift-toolkit/issues/509#issuecomment-2577780749
         #if compiler(>=6.0)
-            if #available(iOS 18.0, *) {
-                config.writingToolsBehavior = .none
-            }
+            // if #available(iOS 18.0, *) {
+            //     config.writingToolsBehavior = .none
+            // }
         #endif
         
         super.init(frame: .zero, configuration: config)
@@ -50,13 +50,13 @@ final class WebView: WKWebView {
 
     override func buildMenu(with builder: any UIMenuBuilder) {
     // Check if the current iOS version supports UIMenuBuilder
-        if #available(iOS 13.0, *) {
-            editingActions.buildMenu(with: builder)
-            // Do not call super to remove the “Copy Link with Highlight” menu item
-            // See https://github.com/readium/swift-toolkit/issues/509
-            // super.buildMenu(with: builder)
-        } else {
-        }
+        // if #available(iOS 13.0, *) {
+        //     editingActions.buildMenu(with: builder)
+        //     // Do not call super to remove the “Copy Link with Highlight” menu item
+        //     // See https://github.com/readium/swift-toolkit/issues/509
+        //     // super.buildMenu(with: builder)
+        // } else {
+        // }
     }
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
